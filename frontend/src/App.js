@@ -25,7 +25,6 @@ function App() {
 
   const getCsrfToken = () => {
     const name = "csrftoken";
-    console.log(document.cookie);
     const cookies = document.cookie.split(";");
     for (let cookie of cookies) {
       const [cookieName, cookieValue] = cookie.trim().split("=");
