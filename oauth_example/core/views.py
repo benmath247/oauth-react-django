@@ -12,7 +12,7 @@ def current_user(request):
         return Response(data)
     return Response({'error': 'Not authenticated'}, status=401)
 
-@api_view(['GET'])
+@api_view(['POST'])
 def logout_view(request):
     logout(request)
     return Response({'message': 'Logged out successfully'}, status=200)

@@ -23,11 +23,33 @@ function App() {
     }
   };
 
+  const getCsrfToken = () => {
+    const name = "csrftoken";
+    console.log(document.cookie);
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split("=");
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
+  };
+
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost/auth/logout/", {
-        withCredentials: true,
-      });
+      const csrfToken = getCsrfToken();
+      await axios.post(
+        "http://localhost/api/logout/",
+        {},
+        {
+          headers: {
+            "X-CSRFToken": csrfToken,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       setResults("Successfully logged out");
     } catch (error) {
       setResults(
