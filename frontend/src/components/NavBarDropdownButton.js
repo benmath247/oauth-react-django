@@ -7,7 +7,7 @@ const NavbarDropdownButton = ({ user, handleLogout }) => {
       title={
         <>
           <Image
-            src={user.photoURL || 'https://cdn11.bigcommerce.com/s-dl22izwaan/images/stencil/1280w/products/677/22372/42_1K__76704.1633021257.jpg?c=1'} // Provide a default profile image
+            src={"http://localhost:8000" + user.profile_picture || 'https://cdn11.bigcommerce.com/s-dl22izwaan/images/stencil/1280w/products/677/22372/42_1K__76704.1633021257.jpg?c=1'} // Provide a default profile image
             roundedCircle
             width="30"
             height="30"
