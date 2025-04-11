@@ -5,9 +5,10 @@ import requests
 from io import BytesIO
 from django.core.files import File
 import os
+import random
 
 def download_dog_picture():
-    response = requests.get('https://dog.ceo/api/breeds/image/random')
+    response = requests.get('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+random.randint(1, 151)+'.png')
     if response.status_code == 200:
         data = response.json()
         if 'message' in data:
