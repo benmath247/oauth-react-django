@@ -150,6 +150,8 @@ SOCIAL_AUTH_LOGIN_ERROR_URL = 'http://localhost:3000/'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = 'http://localhost:3000/home'
 SOCIAL_AUTH_NEW_USER_SEND_EMAIL = False
 
+AUTH_USER_MODEL = 'core.User'
+
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGIN_REDIRECT_URL = 'http://localhost:3000/home'
 LOGOUT_REDIRECT_URL = 'http://localhost:3000/'
@@ -177,3 +179,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
